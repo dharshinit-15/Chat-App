@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>My Chat</title>
+  <style>
+    body {
+      background: pink;
+      font-family: sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+    }
+    #chat {
+      width: 300px;
+      height: 500px;
+      background: white;
+      border-radius: 10px;
+      display: flex;
+      flex-direction: column;
+    }
+    #header {
+      background: #f55;
+      color: white;
+      text-align: center;
+      padding: 10px;
+      font-weight: bold;
+      border-radius: 10px 10px 0 0;
+    }
+    #messages {
+      flex: 1;
+      padding: 10px;
+      overflow-y: auto;
+      list-style: none;
+      margin: 0;
+    }
+    #messages li {
+      background: #fcc;
+      margin-bottom: 8px;
+      padding: 5px 8px;
+      border-radius: 8px;
+      max-width: 70%;
+      word-wrap: break-word;
+    }
+    #form {
+      display: flex;
+      border-top: 1px solid #f88;
+      padding: 8px;
+      background: #fee;
+      border-radius: 0 0 10px 10px;
+    }
+    #message {
+      flex: 1;
+      padding: 7px;
+      border-radius: 8px;
+      border: 1px solid #f55;
+      outline: none;
+    }
+    #sendBtn {
+      background: #f55;
+      color: white;
+      border: none;
+      padding: 0 15px;
+      margin-left: 8px;
+      border-radius: 8px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <div id="chat">
+    <div id="header">My Chat</div>
+    <ul id="messages"></ul>
+    <form id="form" autocomplete="off">
+      <input id="message" placeholder="Type message..." required />
+      <button id="sendBtn" type="submit">Send</button>
+    </form>
+  </div>
+
+  <script src="/socket.io/socket.io.js"></script>
+  <script src="script.js"></script>
+  <div id="login">
+  <input id="username-input" placeholder="Enter your username" />
+  <button id="username-btn">Join Chat</button>
+</div>
+
+<div id="chat" style="display:none;">
+  <ul id="messages"></ul>
+  <form id="chat-form">
+    <input id="message-input" autocomplete="off" placeholder="Type a message..." />
+    <button type="submit">Send</button>
+  </form>
+</div>
+
+</body>
+</html>
